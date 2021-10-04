@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>login to continue</title>
+</head>
+<body>
+	<h2>
+		<span th:text="'Hello, ' + ${username}"></span>
+    </h2>
+	<form method="post" action="/login">
+		<input type="text" name="username" placeholder="enter username">
+		<br>
+		<input type="password" name="password" placeholder="enter password">
+		<br>
+		<input type="password" name="password2" placeholder="enter password">
+		<br>
+		<input type="submit" name="submit" value="submit">
+
+	</form>
+
+</body>
+</html>
