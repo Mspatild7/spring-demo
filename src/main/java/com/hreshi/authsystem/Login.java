@@ -10,8 +10,7 @@ import org.springframework.ui.Model;
 public class Login {
 	
 	@GetMapping("/login")
-	public String login(@RequestParam(name="name") String name, Model model) {
-		model.addAttribute("username", name);
+	public String login(Model model) {
 		return "login";
 	}
 
