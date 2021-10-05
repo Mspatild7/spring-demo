@@ -9,6 +9,11 @@ import org.springframework.ui.Model;
 @Controller
 public class Login {
 	
+	@GetMapping("/")
+	public String login() {
+		return "login";
+	}
+
 	@GetMapping("/login")
 	public String login(Model model) {
 		return "login";
@@ -16,8 +21,12 @@ public class Login {
 
 	@PostMapping("/login")
 	public String login(@RequestParam(name="username")String username, @RequestParam(name="password") String password, Model model) {
-		model.addAttribute("username", username);
-		model.addAttribute("password", password);
+		Users user = new Users();
+		if(user.validateUser(username, password)) {
+			model.addAttribute("result", "yes it worked!");
+		} else {
+			model.addAttribute("result", "did not worked!");
+		}
 		return "login";
 	}
 }
